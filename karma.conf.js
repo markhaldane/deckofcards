@@ -17,7 +17,6 @@ module.exports = function (config) {
         files: [
             'node_modules/jquery/dist/jquery.min.js',
             'node_modules/angular/angular.js',
-//            'node_modules/angular/angular-*.js',
             'node_modules/angular-mocks/angular-mocks.js',
             'public/js/core.js',
             'spec/test.js'
