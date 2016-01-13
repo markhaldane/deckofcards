@@ -34,4 +34,4 @@ from the terminal, as well as from tests.
 
 - You can now start the Node.js application with `node app.js` then open the provided localhost URL within your browswer (i.e. *http://localhost:6000*)
 
-- Jasmine tests (in **spec/test.js**) can be run with `karma start karma.conf.js`
+- Jasmine tests (in **spec/test.js**) can be run with `karma start karma.conf.js` from the /deckofcards root directory

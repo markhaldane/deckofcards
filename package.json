@@ -1,7 +1,7 @@
 {
-  "name": "NodejsStarterApp",
+  "name": "deckofcards",
   "version": "0.0.1",
-  "description": "A sample nodejs app for Bluemix",
+  "description": "A card shuffling/dealing application",
   "scripts": {
     "start": "node app.js"
   },
