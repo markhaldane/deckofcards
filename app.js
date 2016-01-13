@@ -17,6 +17,7 @@ var app = express();
 
 // serve the files out of ./public as our main files
 app.use(express.static(__dirname + '/public'));
+app.use("/public", express.static(__dirname + '/public'));
 
 app.use("/node_modules", express.static(__dirname + '/node_modules'));
 
