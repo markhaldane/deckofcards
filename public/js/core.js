@@ -1,6 +1,6 @@
-angular.module('cardsModule', [])
+angular.module('CardsModule', [])
 
-.controller('mainController', ['$scope', function mainController($scope) {
+.controller('MainCtrl', ['$scope', function MainCtrl($scope) {
 
     $scope.deck = [];
     $scope.drawnCards = [];
@@ -34,6 +34,7 @@ angular.module('cardsModule', [])
     };
 
     //Shuffle the Deck
+    //Uses Fisher-Yates algorithm
     $scope.shuffle = function () {
         if ($scope.deck.length > 0) {
             for (var i = $scope.deck.length - 1; i; i--) {
@@ -45,7 +46,6 @@ angular.module('cardsModule', [])
         } else {
             console.log("You can't shuffle an empty deck!");
         }
-        return $scope.deck;
     };
 
     //Draw X cards from the deck to your hand
@@ -62,21 +62,12 @@ angular.module('cardsModule', [])
         }
     };
 
-    //Return drawn cards to the bottom of the deck
-    $scope.returnDrawnCardsToDeck = function () {
-        for (var i = 0; i < $scope.drawnCards.length; i++) {
-            var card = $scope.drawnCards[i];
-            $scope.deck.push(card);
-        }
-        $scope.drawnCards.length = 0;
-    };
-
-
     //Sort the cards in your hand
     $scope.sortHand = function () {
         $scope.drawnCards.sort(compare);
     };
 
+    //Compare func for sorting, simple card.value increasing order
     function compare(a, b) {
         if (a.value < b.value) {
             return a.value - b.value;
@@ -85,7 +76,7 @@ angular.module('cardsModule', [])
         }
     }
 
-    //Return string names for face cards
+    //Return string names for face cards (used for alt-text of images)
     $scope.getCardName = function (card) {
         if (this.card.rank == 11) {
             return "Jack";

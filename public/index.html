@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html ng-app="cardsModule">
+
+<!-- Bind the Angular App -->
+<html ng-app="CardsModule">
 
 <head>
     <title>Deck of Cards</title>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,7 +23,8 @@
 
 </head>
 
-<body ng-controller="mainController">
+<!-- Bind the Controller -->
+<body ng-controller="MainCtrl">
 
     <div class="container">
 
@@ -33,14 +35,14 @@
             </div>
         </div>
 
-        <!-- Deck and Hand numbers -->
+        <!-- Deck and Hand totals -->
         <div class="row">
-            <div class="col-sm-6 text-center">
+            <div class="col-xs-6 text-center">
                 <div class="bg-primary">
                     <h2>The deck contains: {{ deck.length }} cards</h2>
                 </div>
             </div>
-            <div class="col-sm-6 text-center">
+            <div class="col-xs-6 text-center">
                 <div class="bg-primary">
                     <h2>Your hand contains: {{ drawnCards.length }} cards</h2>
                 </div>
@@ -50,29 +52,33 @@
         <!-- Buttons -->
         <div class="row">
 
-            <!-- Create the deck / reset the deck (clear hand) -->
-            <div class="col-sm-3">
-                <button type="button" class="btn btn-primary-outline" ng-click="createDeck()">Create/Reset the Deck</button>
+            <!-- Create/reset the deck (and clear hand) -->
+            <div class="col-xs-6">
+                <div class="col-xs-12 col-sm-6">
+                    <button type="button" class="btn btn-primary-outline" ng-click="createDeck()">Create/Reset the Deck</button>
+                </div>
+
+                <!-- Shuffle the deck -->
+                <div class="col-xs-12 col-sm-6">
+                    <button type="button" class="btn btn-primary-outline" ng-click="shuffle()">Shuffle the Deck</button>
+                </div>
             </div>
 
-            <!-- Shuffle the deck -->
-            <div class="col-sm-3">
-                <button type="button" class="btn btn-primary-outline" ng-click="shuffle()">Shuffle the Deck</button>
-            </div>
+            <div class="col-xs-6">
+                <!-- User input for number of cards to draw -->
+                <div class="col-xs-12 col-sm-4">
+                    <input type="number" ng-model="drawInput" size="50" placeholder="How many cards?" class="form-control">
+                </div>
 
-            <!-- User input for number of cards to draw -->
-            <div class="col-sm-2">
-                <input type="number" ng-model="drawInput" size="50" placeholder="How many cards?" class="form-control">
-            </div>
+                <!-- Draw the cards -->
+                <div class="col-xs-12 col-sm-4">
+                    <button type="button" class="btn btn-primary-outline" ng-click="drawCards()">Draw!</button>
+                </div>
 
-            <!-- Draw the cards -->
-            <div class="col-sm-2">
-                <button type="button" class="btn btn-primary-outline" ng-click="drawCards()">Draw!</button>
-            </div>
-
-            <!-- Sort the cards in hand -->
-            <div class="col-sm-2">
-                <button type="button" class="btn btn-primary-outline" ng-click="sortHand()">Sort Your Hand</button>
+                <!-- Sort the cards in hand -->
+                <div class="col-xs-12 col-sm-4">
+                    <button type="button" class="btn btn-primary-outline" ng-click="sortHand()">Sort Your Hand</button>
+                </div>
             </div>
             <br>
             <br>
@@ -81,26 +87,21 @@
         <!-- The cards -->
         <div class="row">
 
-            <!-- Cards in deck -->
-            <div class="col-sm-6">
-                <div class="col-sm-2" ng-repeat="card in deck">
+            <!-- Cards in Deck -->
+            <div class="col-xs-6">
+                <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" ng-repeat="card in deck">
                     <img ng-src="../public/images/cards/{{ card.value }}.png" alt="{{ getCardName(card) }} of {{ card.suit }}" style="width:75px;height:100px" class="thumbnail">
                 </div>
             </div>
 
-            <!-- Cards in hand -->
-            <div class="col-sm-6">
-                <div class="col-sm-2" ng-repeat="card in drawnCards">
+            <!-- Cards in Hand -->
+            <div class="col-xs-6">
+                <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" ng-repeat="card in drawnCards">
                     <img ng-src="../public/images/cards/{{ card.value }}.png" alt="{{ getCardName(card) }} of {{ card.suit }}" style="width:75px;height:100px" class="thumbnail">
                 </div>
             </div>
-
         </div>
     </div>
-
-    <!-- Reset the deck -->
-    <!--        <div class="button" ng-click="returnDrawnCardsToDeck()">Return your hand to the bottom of the deck</div>-->
-
 
 </body>
 
