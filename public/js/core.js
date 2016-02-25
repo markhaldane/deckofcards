@@ -34,17 +34,16 @@ angular.module('CardsModule', [])
     };
 
     //Shuffle the Deck
-    //Uses Fisher-Yates algorithm
     $scope.shuffle = function () {
-        if ($scope.deck.length > 0) {
-            for (var i = $scope.deck.length - 1; i; i--) {
-                var rnd = Math.random() * i | 0;
-                var tempCard = $scope.deck[i];
-                $scope.deck[i] = $scope.deck[rnd];
-                $scope.deck[rnd] = tempCard;
-            }
-        } else {
-            console.log("You can't shuffle an empty deck!");
+        var m = $scope.deck.length, i, t;
+        //While there are cards remaining to be shuffled
+        while (m) {
+            //Take a remaining card
+            i = Math.floor(Math.random() * m--);
+            //And swap it with the current card
+            t = $scope.deck[m];
+            $scope.deck[m] = $scope.deck[i];
+            $scope.deck[i] = t;
         }
     };
 
