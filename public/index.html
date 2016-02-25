@@ -90,14 +90,14 @@
             <!-- Cards in Deck -->
             <div class="col-xs-6">
                 <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" ng-repeat="card in deck">
-                    <img ng-src="../public/images/cards/{{ card.value }}.png" alt="{{ getCardName(card) }} of {{ card.suit }}" style="width:75px;height:100px" class="thumbnail">
+                    <img ng-src="../public/images/cards/{{ card.value }}.png" style="width:75px;height:100px" class="thumbnail">
                 </div>
             </div>
 
             <!-- Cards in Hand -->
             <div class="col-xs-6">
                 <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" ng-repeat="card in drawnCards">
-                    <img ng-src="../public/images/cards/{{ card.value }}.png" alt="{{ getCardName(card) }} of {{ card.suit }}" style="width:75px;height:100px" class="thumbnail">
+                    <img ng-src="../public/images/cards/{{ card.value }}.png" style="width:75px;height:100px" class="thumbnail">
                 </div>
             </div>
         </div>

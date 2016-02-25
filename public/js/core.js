@@ -75,19 +75,4 @@ angular.module('CardsModule', [])
         }
     }
 
-    //Return string names for face cards (used for alt-text of images)
-    $scope.getCardName = function (card) {
-        if (this.card.rank == 11) {
-            return "Jack";
-        } else if (this.card.rank == 12) {
-            return "Queen";
-        } else if (this.card.rank == 13) {
-            return "King";
-        } else if (this.card.rank == 14) {
-            return "Ace";
-        } else {
-            return this.card.rank;
-        }
-    };
-
 }]);
